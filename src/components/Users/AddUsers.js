@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import classes from './AddUsers.module.css';
+import Card from "../UI/Card";
 const AddUser =()=>{
     const [userInput, setUserInput] = useState('');
     const [userAge, setUserAge] = useState('');
@@ -19,13 +20,16 @@ if(+userAge< 1){
     return;
 }
     }
-    return <form onSubmit={formHandler}>
+    return 
+    <Card className={classes.input} >
+    <form onSubmit={formHandler}>
         <label>Username</label>
         <input onChange={inputHandler} type="text"/>
-        <label>Username</label>
+        <label>Age (Years old)</label>
         <input onChange={ageHandler} type="number"/>
         <button type="submit">Add User</button>
     </form>
+    </Card>
 }
 
 export default AddUser;
